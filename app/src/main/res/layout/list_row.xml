@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="#ccc"
+    android:layout_height="120dp">
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@mipmap/menu"
+        android:id="@+id/listViewImage"
+        android:layout_margin="30dp"
+
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="lesson title"
+        android:textSize="25dp"
+        android:id="@+id/listViewTitle"
+        android:padding="5dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginTop="20dp"
+
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="dec 1"
+        android:textSize="20dp"
+        android:id="@+id/listViewDesc"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="10dp"
+
+        />
+
+
+
+</RelativeLayout>
