@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.view.View;
@@ -14,6 +15,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -65,6 +67,20 @@ public class LessonActivity extends AppCompatActivity {
 
         TextView dec2 = findViewById(R.id.lessonDec2);
         dec2.setText(lessonsInfo.get(i).getDes2());
+
+        LottieAnimationView finishBtn = findViewById(R.id.lessonFinishBtn);
+
+        finishBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                lessonsInfo.get(i).setStatus(true);
+                String json = gson.toJson(lessonsInfo);
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.putString("data", json);
+                editor.apply();
+                finish();
+            }
+        });
 
 
     }

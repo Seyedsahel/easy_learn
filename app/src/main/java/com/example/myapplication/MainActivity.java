@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -15,6 +16,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -31,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     SharedPreferences prefs;
 
     ArrayList<lessonClass> lessonsInfo;
+    int progresscount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,10 +61,14 @@ public class MainActivity extends AppCompatActivity {
             Type type = new TypeToken<ArrayList<lessonClass>>() {} .getType();
             lessonsInfo = gson.fromJson(json , type);
 
+
+
         ListView list = findViewById(R.id.listView);
         ListAdapter adapter = new ListAdapter(lessonsInfo , MainActivity.this);
 
         list.setAdapter(adapter);
+
+
 
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -72,6 +79,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        for (int i=0;i<lessonsInfo.size();i++){
+            if(lessonsInfo.get(i).getStatus())
+                progresscount++;
+        }
+        ProgressBar progress = findViewById(R.id.progressBar);
+        progress.setProgress(progresscount,true);
+        
 
 
     }
