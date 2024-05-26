@@ -42,7 +42,10 @@ public class ListAdapter extends BaseAdapter {
         view = inflater.inflate(R.layout.list_row, null);
 
         ImageView img = view.findViewById(R.id.listViewImage);
-        img.setImageResource(lessonList.get(i).getPic());
+        if(lessonList.get(i).getStatus())
+            img.setImageResource(R.mipmap.profile);
+        else
+            img.setImageResource(R.mipmap.menu);
 
         TextView title = (TextView) view.findViewById(R.id.listViewTitle);
         title.setText(lessonList.get(i).getTitle());

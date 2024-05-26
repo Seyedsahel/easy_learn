@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -85,7 +86,11 @@ public class MainActivity extends AppCompatActivity {
         }
         ProgressBar progress = findViewById(R.id.progressBar);
         progress.setProgress(progresscount,true);
-        
+
+        TextView progressPer = findViewById(R.id.progress_per);
+        int pp = progresscount*100/3;
+        progressPer.setText(String.valueOf(pp)+"%");
+
 
 
     }
