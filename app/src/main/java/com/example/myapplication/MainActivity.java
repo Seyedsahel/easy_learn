@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(intent);
             }
         });
-
+        MyApplication.progressCount=0;
         for (int i=0;i<lessonsInfo.size();i++){
             if(lessonsInfo.get(i).getStatus())
                 MyApplication.progressCount++;

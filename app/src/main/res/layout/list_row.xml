@@ -7,7 +7,7 @@
     <ImageView
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:src="@mipmap/menu"
+        android:src="@drawable/circle"
         android:id="@+id/listViewImage"
         android:layout_margin="30dp"
 

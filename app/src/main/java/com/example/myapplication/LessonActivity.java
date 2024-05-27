@@ -30,8 +30,11 @@ public class LessonActivity extends AppCompatActivity {
 
     Gson gson;
 
+    int[] lessonIcons = {R.drawable.circleone,R.drawable.circletwo,R.drawable.circlethree,R.drawable.circlefour,R.drawable.circlefive};;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_lesson);
@@ -40,6 +43,7 @@ public class LessonActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
 
 
         Intent intent = getIntent();
@@ -59,6 +63,12 @@ public class LessonActivity extends AppCompatActivity {
         Type type = new TypeToken<ArrayList<lessonClass>>() {} .getType();
         lessonsInfo = gson.fromJson(json , type);
 
+        TextView titlelesson = findViewById(R.id.titlelesson);
+        titlelesson.setText(lessonsInfo.get(i).getTitle());
+
+        ImageView logoLesson = findViewById(R.id.logolesson);
+        logoLesson.setImageResource(lessonIcons[i]);
+
         TextView dec1 = findViewById(R.id.lessonDec1);
         dec1.setText(lessonsInfo.get(i).getDes1());
 
@@ -67,6 +77,8 @@ public class LessonActivity extends AppCompatActivity {
 
         TextView dec2 = findViewById(R.id.lessonDec2);
         dec2.setText(lessonsInfo.get(i).getDes2());
+
+
 
         LottieAnimationView finishBtn = findViewById(R.id.lessonFinishBtn);
 
