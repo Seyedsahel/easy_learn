@@ -16,6 +16,13 @@ public class ListAdapter extends BaseAdapter {
     Context context;
     LayoutInflater inflater;
 
+    private OnItemClickListener onItemClickListener;
+
+    public interface OnItemClickListener {
+        void onItemClick(int position);
+    }
+
+
     public ListAdapter(ArrayList<lessonClass> lessonList, Context context) {
         this.lessonList = lessonList;
         this.context = context;
@@ -43,15 +50,17 @@ public class ListAdapter extends BaseAdapter {
 
         ImageView img = view.findViewById(R.id.listViewImage);
         if(lessonList.get(i).getStatus())
-            img.setImageResource(R.mipmap.profile);
+            img.setImageResource(R.drawable.check_circle);
         else
-            img.setImageResource(R.mipmap.menu);
+            img.setImageResource(R.drawable.circle);
 
         TextView title = (TextView) view.findViewById(R.id.listViewTitle);
         title.setText(lessonList.get(i).getTitle());
 
         TextView shortDescription = (TextView) view.findViewById(R.id.listViewDesc);
         shortDescription.setText(lessonList.get(i).getDes1());
+
+
 
         return view;
     }

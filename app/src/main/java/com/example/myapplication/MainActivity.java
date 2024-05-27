@@ -95,5 +95,33 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // Refresh the list and progress bar
+        String json = prefs.getString("data", null);
+        Type type = new TypeToken<ArrayList<lessonClass>>() {}.getType();
+        lessonsInfo = gson.fromJson(json, type);
+
+        ListView list = findViewById(R.id.listView);
+        ListAdapter adapter = new ListAdapter(lessonsInfo, MainActivity.this);
+        list.setAdapter(adapter);
+
+        progresscount = 0;
+        for (int i = 0; i < lessonsInfo.size(); i++) {
+            if (lessonsInfo.get(i).getStatus())
+                progresscount++;
+        }
+        ProgressBar progress = findViewById(R.id.progressBar);
+        progress.setProgress(progresscount, true);
+        int pp = progresscount * 100 / 3;
+
+        TextView progressPer = findViewById(R.id.progress_per);
+        progressPer.setText(String.valueOf(pp) + "%");
+    }
+
+
+
+
 }
 

@@ -78,9 +78,14 @@ public class LessonActivity extends AppCompatActivity {
                 SharedPreferences.Editor editor = prefs.edit();
                 editor.putString("data", json);
                 editor.apply();
-                finish();
+
+                // Add this part to go back to MainActivity and update the UI
+                Intent intent = new Intent(LessonActivity.this, MainActivity.class);
+                startActivity(intent);
+                finish(); // This will finish the current LessonActivity
             }
         });
+
 
 
     }
