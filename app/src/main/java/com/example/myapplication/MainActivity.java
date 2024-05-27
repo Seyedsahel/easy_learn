@@ -1,5 +1,6 @@
 package com.example.myapplication;
 
+import android.app.Application;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -30,14 +31,23 @@ import java.util.ListIterator;
 
 public class MainActivity extends AppCompatActivity {
 
+    public static class MyApplication extends Application{
+        static int progressCount;
+        static ProgressBar progressBar ;
+        static TextView progressPer;
+
+    }
+
     Gson gson;
     SharedPreferences prefs;
 
     ArrayList<lessonClass> lessonsInfo;
-    int progresscount;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
@@ -69,8 +79,6 @@ public class MainActivity extends AppCompatActivity {
 
         list.setAdapter(adapter);
 
-
-
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -82,15 +90,15 @@ public class MainActivity extends AppCompatActivity {
 
         for (int i=0;i<lessonsInfo.size();i++){
             if(lessonsInfo.get(i).getStatus())
-                progresscount++;
+                MyApplication.progressCount++;
+
         }
-        ProgressBar progress = findViewById(R.id.progressBar);
-        progress.setProgress(progresscount,true);
 
-        TextView progressPer = findViewById(R.id.progress_per);
-        int pp = progresscount*100/3;
-        progressPer.setText(String.valueOf(pp)+"%");
+        MyApplication.progressBar = findViewById(R.id.progressBar);
+        MyApplication.progressBar.setProgress(MyApplication.progressCount,true);
 
+        MyApplication.progressPer = findViewById(R.id.progress_per);
+        MyApplication.progressPer.setText(String.valueOf(MyApplication.progressCount)+"of 5");
 
 
     }
@@ -99,6 +107,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         // Refresh the list and progress bar
+
+        MyApplication.progressBar = findViewById(R.id.progressBar);
+        MyApplication.progressPer = findViewById(R.id.progress_per);
+
         String json = prefs.getString("data", null);
         Type type = new TypeToken<ArrayList<lessonClass>>() {}.getType();
         lessonsInfo = gson.fromJson(json, type);
@@ -107,21 +119,13 @@ public class MainActivity extends AppCompatActivity {
         ListAdapter adapter = new ListAdapter(lessonsInfo, MainActivity.this);
         list.setAdapter(adapter);
 
-        progresscount = 0;
-        for (int i = 0; i < lessonsInfo.size(); i++) {
-            if (lessonsInfo.get(i).getStatus())
-                progresscount++;
-        }
-        ProgressBar progress = findViewById(R.id.progressBar);
-        progress.setProgress(progresscount, true);
-        int pp = progresscount * 100 / 3;
+        MyApplication.progressBar.setProgress(MyApplication.progressCount, true);
 
-        TextView progressPer = findViewById(R.id.progress_per);
-        progressPer.setText(String.valueOf(pp) + "%");
+        MyApplication.progressPer.setText(String.valueOf(MyApplication.progressCount)+"of 5");
+
     }
 
-
-
-
 }
+
+
 
