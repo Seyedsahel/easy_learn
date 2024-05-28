@@ -81,8 +81,69 @@
                 android:id="@+id/lessonVid"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:layout_margin="20dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginBottom="5dp"
                 android:baselineAligned="false" />
+
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:weightSum="3"
+                android:outlineAmbientShadowColor="#450606"
+                android:background="#BF8888">
+                <ImageView
+                    android:id="@+id/stpvid"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginVertical="5dp"
+                    android:layout_marginStart="90dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/stop"/>
+                <ImageView
+                    android:layout_weight="1"
+                    android:id="@+id/plyvid"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginVertical="5dp"
+                    android:src="@drawable/play"/>
+                <ImageView
+                    android:layout_weight="1"
+                    android:id="@+id/pusvid"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginEnd="90dp"
+                    android:layout_marginVertical="5dp"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/pause"/>
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_marginBottom="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#BF8888">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="valume"
+                    android:textStyle="bold"
+                    android:textSize="20dp"
+                    android:layout_marginStart="20dp"/>
+                <SeekBar
+                    android:layout_marginVertical="3dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:min="1"
+                    android:max="10"
+                    android:id="@+id/setvalume"
+                    />
+            </LinearLayout>
+
 
             <com.airbnb.lottie.LottieAnimationView
                 android:id="@+id/lessonFinishBtn"

@@ -2,10 +2,14 @@ package com.example.myapplication;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.PixelFormat;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.view.SurfaceHolder;
+import android.view.SurfaceView;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.SeekBar;
 import android.widget.TextView;
 import android.view.View;
 
@@ -25,6 +29,8 @@ import java.util.ArrayList;
 public class LessonActivity extends AppCompatActivity {
 
     int i;
+
+    MediaPlayer mediaPlayer;
     SharedPreferences prefs;
     ArrayList<lessonClass> lessonsInfo;
 
@@ -79,6 +85,59 @@ public class LessonActivity extends AppCompatActivity {
         dec2.setText(lessonsInfo.get(i).getDes2());
 
 
+        ImageView playVid = findViewById(R.id.plyvid);
+
+        playVid.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(mediaPlayer == null)
+                    mediaPlayer = MediaPlayer.create(LessonActivity.this,lessonsInfo.get(i).getVid());
+                getWindow().setFormat(PixelFormat.UNKNOWN);
+                SurfaceView mPreview = (SurfaceView)findViewById(R.id.lessonVid);
+                SurfaceHolder holder = mPreview.getHolder();
+                holder.setFixedSize(800, 480);
+                holder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
+                mediaPlayer.setDisplay(holder);
+                mediaPlayer.start();
+                mediaPlayer.setLooping(false);
+            }
+        });
+
+        ImageView pauseVid = findViewById(R.id.pusvid);
+        pauseVid.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mediaPlayer.isPlaying())
+                    mediaPlayer.pause();
+            }
+        });
+
+        ImageView stopVid = findViewById(R.id.stpvid);
+        stopVid.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mediaPlayer.stop();
+            }
+        });
+
+        SeekBar setvalume = findViewById(R.id.setvalume);
+        setvalume.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                mediaPlayer.setVolume((float)progress,(float)progress);
+
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
 
         LottieAnimationView finishBtn = findViewById(R.id.lessonFinishBtn);
 
