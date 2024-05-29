@@ -7,7 +7,7 @@
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@drawable/javalogo"
-        android:label="EASY LEARN"
+        android:label="@string/app_name"
         android:roundIcon="@drawable/javalogo"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication"
