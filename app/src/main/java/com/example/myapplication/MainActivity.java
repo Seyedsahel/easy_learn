@@ -1,9 +1,11 @@
 package com.example.myapplication;
 
 import android.app.Application;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -11,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -175,10 +178,11 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
        if (item.getTitle().equals("dark mode")){
            toggleSetting();
        } else if (item.getTitle().equals("About Us")) {
+           Toast.makeText(MainActivity.this , "به برنامه EASY LEARN خوش آمدید" , Toast.LENGTH_LONG).show();
+           Intent intent = new Intent(MainActivity.this,AboutUsActivity.class);
+           startActivity(intent);
            
-       } else if (item.getTitle().equals("Profile")) {
-           
-       } else if (item.getTitle().equals("nav_LogOut")) {
+       } else if (item.getTitle().equals("Log out")) {
            
        }
         return false;

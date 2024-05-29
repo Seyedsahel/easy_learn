@@ -13,10 +13,6 @@
         </menu>
     </item>
         <item
-            android:id="@+id/nav_profile"
-            android:icon="@drawable/profile"
-            android:title="Profile" />
-        <item
             android:id="@+id/nav_Us"
             android:icon="@drawable/code"
             android:title="About Us"/>
@@ -24,7 +20,7 @@
         <item
             android:id="@+id/nav_LogOut"
             android:icon="@drawable/logout"
-            android:title="About Us"/>
+            android:title="Log out"/>
 
 
     </group>
