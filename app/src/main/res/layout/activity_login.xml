@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity"
+    android:gravity="center"
+    android:textDirection="rtl">
+
+
+    <ImageView
+        android:layout_width="295dp"
+        android:layout_height="295dp"
+        android:src="@drawable/lock"
+        android:layout_marginBottom="10dp"
+        />
+    <EditText
+        android:id="@+id/usernameEdt"
+        android:layout_width="295dp"
+        android:layout_height="75dp"
+        android:hint="نام کاربری"
+        />
+    <EditText
+        android:id="@+id/passwordEdt"
+        android:layout_width="295dp"
+        android:layout_height="75dp"
+        android:hint="رمز عبور"
+        android:inputType="textPassword"
+        />
+    <CheckBox
+        android:id="@+id/rememberMeChbx"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="مرا به خاطر بسپار!"
+        android:layoutDirection="rtl"/>
+    <TextView
+        android:id="@+id/errorMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#f00"
+        android:layout_margin="8dp"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:gravity="center"
+        android:textDirection="rtl"
+        android:layoutDirection="rtl">
+        <Button
+            android:id="@+id/loginBtn"
+            android:layout_width="170dp"
+            android:layout_height="80dp"
+            android:text="ورود به برنامه"
+            android:background="#6A1515"
+            android:onClick="doLogin"
+            />
+        <TextView
+            android:layout_width="30dp"
+            android:layout_height="80dp"
+            android:text="/"
+            android:gravity="center"/>
+        <Button
+            android:id="@+id/registerBtn"
+            android:layout_width="170dp"
+            android:layout_height="80dp"
+            android:text="ثبت نام"
+        android:background="#6A1515"
+            android:onClick="doRegister"/>
+
+    </LinearLayout>
+
+</LinearLayout>
