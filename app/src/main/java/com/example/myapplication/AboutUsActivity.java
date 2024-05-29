@@ -39,7 +39,7 @@ public class AboutUsActivity extends AppCompatActivity {
         telegram.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String url = "https://github.com/Seyedsahel/easy_learn";
+                String url = "https://t.me/Morss_7";
                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
                 startActivity(intent);
 

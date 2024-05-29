@@ -178,7 +178,6 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
        if (item.getTitle().equals("dark mode")){
            toggleSetting();
        } else if (item.getTitle().equals("About Us")) {
-           Toast.makeText(MainActivity.this , "به برنامه EASY LEARN خوش آمدید" , Toast.LENGTH_LONG).show();
            Intent intent = new Intent(MainActivity.this,AboutUsActivity.class);
            startActivity(intent);
            
