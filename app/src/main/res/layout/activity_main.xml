@@ -54,7 +54,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:gravity="center">
+            android:gravity="center"
+            android:layout_marginVertical="20dp">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -66,16 +67,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="10%"
+                android:layout_marginVertical="5dp"
                 android:textSize="20dp"
                 ></TextView>
             <ProgressBar
                 android:layout_width="350dp"
-                android:layout_height="70dp"
+                android:layout_height="20dp"
                 android:id="@+id/progressBar"
                 style="@style/Widget.AppCompat.ProgressBar.Horizontal"
                 android:min="0"
                 android:max="5"
-                android:progress="1"/>
+                android:progress="1"
+                android:progressDrawable="@drawable/red_progress"/>
         </LinearLayout>
         <View
             android:layout_width="match_parent"
