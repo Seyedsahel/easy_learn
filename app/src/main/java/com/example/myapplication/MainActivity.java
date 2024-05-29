@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
@@ -34,7 +35,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity  implements NavigationView.OnNavigationItemSelectedListener
+{
 
     public static class MyApplication extends Application{
         static int progressCount;
@@ -65,11 +67,16 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-
+            //navigathin
 
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
         navMenu = findViewById(R.id.navMenu); // فایند کردن ImageView با ایدی navMenu
+
+
+        // تنظیم منوی Navigation Drawer
+        navigationView.setNavigationItemSelectedListener(this);
+        navigationView.inflateMenu(R.menu.nav_menu);
 
         // تنظیم کلیک روی آیکون منو
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -77,12 +84,6 @@ public class MainActivity extends AppCompatActivity {
         );
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
-
-        // تنظیم کلیک روی آیتم های منو
-        navigationView.setNavigationItemSelectedListener(menuItem -> {
-            // اینجا کد انتخاب آیتم ها را قرار دهید
-            return true;
-        });
 
         // کلیک روی آیکون منو برای باز/بسته کردن Navigation Drawer
         navMenu.setOnClickListener(v -> {
@@ -94,6 +95,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+//end navigathin
 
         prefs = getSharedPreferences("lessons_prefs" ,MODE_PRIVATE);
         gson = new Gson();
@@ -142,7 +144,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    @Override
+
+
+
+        @Override
     protected void onResume() {
         super.onResume();
         // Refresh the list and progress bar
@@ -163,6 +168,32 @@ public class MainActivity extends AppCompatActivity {
         MyApplication.progressPer.setText(String.valueOf(MyApplication.progressCount)+"of 5");
 
     }
+
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+       if (item.getTitle().equals("dark mode")){
+           toggleSetting();
+       } else if (item.getTitle().equals("About Us")) {
+           
+       } else if (item.getTitle().equals("Profile")) {
+           
+       } else if (item.getTitle().equals("nav_LogOut")) {
+           
+       }
+        return false;
+    }
+
+
+    private void toggleSetting() {
+        // کد مربوط به تغییر وضعیت تاگل باتن را اینجا قرار دهید
+        // مثلاً:
+        // boolean currentState = getSharedPreferences("settings", Context.MODE_PRIVATE).getBoolean("toggle_setting", false);
+        // SharedPreferences.Editor editor = getSharedPreferences("settings", Context.MODE_PRIVATE).edit();
+        // editor.putBoolean("toggle_setting", !currentState);
+        // editor.apply();
+    }
+
 
 }
 

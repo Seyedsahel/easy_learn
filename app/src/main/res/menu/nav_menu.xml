@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_settings"
+            android:icon="@drawable/gear"
+            android:title="Settings" >
+        <menu>
+            <item
+                android:icon="@drawable/gear"
+                android:id="@+id/nav_settings_toggle"
+                android:title="dark mode" />
+        </menu>
+    </item>
+        <item
+            android:id="@+id/nav_profile"
+            android:icon="@drawable/profile"
+            android:title="Profile" />
+        <item
+            android:id="@+id/nav_Us"
+            android:icon="@drawable/code"
+            android:title="About Us"/>
+
+        <item
+            android:id="@+id/nav_LogOut"
+            android:icon="@drawable/logout"
+            android:title="About Us"/>
+
+
+    </group>
+</menu>
