@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -20,6 +21,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
+import androidx.core.content.ContextCompat;
 import androidx.core.graphics.Insets;
 import androidx.core.view.GravityCompat;
 import androidx.core.view.ViewCompat;
@@ -81,6 +84,7 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.inflateMenu(R.menu.nav_menu);
 
+
         // تنظیم کلیک روی آیکون منو
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawerLayout, R.string.navigation_drawer_open, R.string.navigation_drawer_close
@@ -119,6 +123,7 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
 
 
         ListView list = findViewById(R.id.listView);
+
         ListAdapter adapter = new ListAdapter(lessonsInfo , MainActivity.this);
 
         list.setAdapter(adapter);
@@ -172,11 +177,23 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
 
     }
 
+    public boolean isDarkmode(){
+        int nightflag = getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
+        return nightflag == Configuration.UI_MODE_NIGHT_YES;
+    }
+
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-       if (item.getTitle().equals("dark mode")){
-           toggleSetting();
+       if (item.getTitle().equals("dark mode on/off")){
+           if(isDarkmode()){
+               AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+               Toast.makeText(MainActivity.this , "Dark mode off" , Toast.LENGTH_LONG).show();
+           }
+           else {
+               AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+               Toast.makeText(MainActivity.this, "Dark mode on", Toast.LENGTH_LONG).show();
+           }
        } else if (item.getTitle().equals("About Us")) {
            Intent intent = new Intent(MainActivity.this,AboutUsActivity.class);
            startActivity(intent);
@@ -188,14 +205,6 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
     }
 
 
-    private void toggleSetting() {
-        // کد مربوط به تغییر وضعیت تاگل باتن را اینجا قرار دهید
-        // مثلاً:
-        // boolean currentState = getSharedPreferences("settings", Context.MODE_PRIVATE).getBoolean("toggle_setting", false);
-        // SharedPreferences.Editor editor = getSharedPreferences("settings", Context.MODE_PRIVATE).edit();
-        // editor.putBoolean("toggle_setting", !currentState);
-        // editor.apply();
-    }
 
 
 }

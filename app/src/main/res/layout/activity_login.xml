@@ -54,7 +54,8 @@
             android:layout_width="170dp"
             android:layout_height="80dp"
             android:text="ورود به برنامه"
-            android:background="#6A1515"
+            android:textColor="@color/white"
+            android:backgroundTint="#a01836"
             android:onClick="doLogin"
             />
         <TextView
@@ -67,7 +68,8 @@
             android:layout_width="170dp"
             android:layout_height="80dp"
             android:text="ثبت نام"
-        android:background="#6A1515"
+            android:textColor="@color/white"
+        android:backgroundTint="#a01836"
             android:onClick="doRegister"/>
 
     </LinearLayout>

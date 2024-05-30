@@ -7,9 +7,9 @@
             android:title="Settings" >
         <menu>
             <item
-                android:icon="@drawable/gear"
+                android:icon="@drawable/moon"
                 android:id="@+id/nav_settings_toggle"
-                android:title="dark mode" />
+                android:title="dark mode on/off" />
         </menu>
     </item>
         <item
