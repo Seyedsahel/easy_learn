@@ -1,7 +1,9 @@
 package com.example.myapplication;
 
+import android.app.AlertDialog;
 import android.app.Application;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
@@ -199,11 +201,33 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
            startActivity(intent);
            
        } else if (item.getTitle().equals("Log out")) {
+           AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+           builder.setTitle("خروج");
+           builder.setMessage("آیا مایل به خروج از حساب کاربری هستید؟");
+           builder.setIcon(R.drawable.logout);
+
+           builder.setPositiveButton("بله", new DialogInterface.OnClickListener() {
+               @Override
+               public void onClick(DialogInterface dialogInterface, int i) {
+                   finish();
+                   Intent intent = new Intent(MainActivity.this , LoginActivity.class);
+                   startActivity(intent);
+
+               }
+           });
+           builder.setNegativeButton("خیر", new DialogInterface.OnClickListener() {
+               @Override
+               public void onClick(DialogInterface dialogInterface, int i) {
+                   dialogInterface.dismiss();
+               }
+           });
+           builder.setCancelable(false);
+           builder.show();
+
            
        }
         return false;
     }
-
 
 
 
