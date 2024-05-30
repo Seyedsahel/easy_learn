@@ -1,14 +1,20 @@
 package com.example.myapplication;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.PixelFormat;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.PopupMenu;
+import android.widget.PopupWindow;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.view.View;
@@ -34,6 +40,9 @@ public class LessonActivity extends AppCompatActivity {
     SharedPreferences prefs;
     ArrayList<lessonClass> lessonsInfo;
 
+    PopupWindow popupWindow;
+
+
     Gson gson;
 
     int[] lessonIcons = {R.drawable.circleone,R.drawable.circletwo,R.drawable.circlethree,R.drawable.circlefour,R.drawable.circlefive};;
@@ -49,7 +58,6 @@ public class LessonActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-
 
 
         Intent intent = getIntent();
@@ -83,7 +91,6 @@ public class LessonActivity extends AppCompatActivity {
 
         TextView dec2 = findViewById(R.id.lessonDec2);
         dec2.setText(lessonsInfo.get(i).getDes2());
-
 
         ImageView playVid = findViewById(R.id.plyvid);
 
@@ -124,6 +131,8 @@ public class LessonActivity extends AppCompatActivity {
         setvalume.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                if(mediaPlayer == null)
+                    mediaPlayer = MediaPlayer.create(LessonActivity.this,lessonsInfo.get(i).getVid());
                 mediaPlayer.setVolume((float)progress,(float)progress);
 
             }
@@ -158,6 +167,50 @@ public class LessonActivity extends AppCompatActivity {
         });
 
 
+        ImageView menuimg = findViewById(R.id.FontSize);
+        menuimg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showPopupMenu(v);
+            }
+        });
+
 
     }
+
+
+    private void showPopupMenu(View anchor) {
+        if (popupWindow != null && popupWindow.isShowing()) {
+            popupWindow.dismiss();
+        } else {
+            LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            View popupView = inflater.inflate(R.layout.menu_item_with_seekbar, null);
+
+            // پیدا کردن seekbar در پاپ آپ منو
+            SeekBar seekBar = popupView.findViewById(R.id.menu_item_seekbar);
+
+        // اضافه کردن listener به seekbar
+        seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                TextView dec1 = findViewById(R.id.lessonDec1);
+                TextView dec2 = findViewById(R.id.lessonDec2);
+                dec1.setTextSize((float)progress);
+                dec2.setTextSize((float)progress);
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+            }
+        });
+
+        popupWindow = new PopupWindow(popupView, ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        popupWindow.showAsDropDown(anchor);
+    }}
+
+
 }

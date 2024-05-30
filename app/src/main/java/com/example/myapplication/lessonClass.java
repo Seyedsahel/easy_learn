@@ -85,6 +85,10 @@ public class lessonClass {
     public void setDes2(String dec2) {
         this.dec2 = dec2;
     }
+
+    public String getDec3(){
+        return this.dec3;
+    }
 }
 
 

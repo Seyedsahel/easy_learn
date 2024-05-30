@@ -56,6 +56,7 @@ public class RegisterActivity extends AppCompatActivity {
                     i.putExtra("USERNAME",String.valueOf(editTextUserName.getText()));
                     i.putExtra("PASSWORD",String.valueOf(editTextPassword.getText()));
                     startActivity(i);
+                    finish();
                 }
                 else
                     erromsg.setText("پسورد با تکرار مطابقت ندارد!");

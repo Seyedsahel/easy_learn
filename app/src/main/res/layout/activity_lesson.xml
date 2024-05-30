@@ -13,10 +13,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <ImageView
+            android:id="@+id/FontSize"
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:layout_alignParentStart="true"
-            android:src="@drawable/sidebar"
+            android:src="@drawable/sliders"
             android:layout_margin="20dp"
             ></ImageView>
         <TextView
@@ -76,6 +77,10 @@
                 android:layout_margin="20dp"
                 android:text="sdfhjgfdjjdfjgkzslfsgjlddsgjfslfdsfjsdbjlfghjdjhbjhdbjbdjbfjdbbabjbadfjbbhdfhabjhdbfhdjbdjhajhjhj"
                 android:textSize="20dp"></TextView>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="\n"/>
 
             <SurfaceView
                 android:id="@+id/lessonVid"
