@@ -18,6 +18,7 @@
 
     <SeekBar
         android:min="10"
+        android:progressDrawable="@drawable/red_progress"
         android:max="30"
         android:layout_gravity="center"
         style="@style/CardView.Light"

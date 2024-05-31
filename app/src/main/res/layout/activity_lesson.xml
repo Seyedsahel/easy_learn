@@ -102,7 +102,7 @@
                 android:layout_marginTop="10dp"
                 android:weightSum="3"
                 android:outlineAmbientShadowColor="#450606"
-                android:background="#BF8888">
+                android:background="#a01836">
                 <ImageView
                     android:id="@+id/stpvid"
                     android:layout_width="50dp"
@@ -141,6 +141,7 @@
                     android:text="valume"
                     android:textStyle="bold"
                     android:textSize="20dp"
+                    android:textColor="@color/white"
                     android:layout_marginStart="20dp"/>
                 <SeekBar
                     android:layout_marginVertical="3dp"

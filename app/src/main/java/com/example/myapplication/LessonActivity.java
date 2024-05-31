@@ -133,7 +133,7 @@ public class LessonActivity extends AppCompatActivity {
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 if(mediaPlayer == null)
                     mediaPlayer = MediaPlayer.create(LessonActivity.this,lessonsInfo.get(i).getVid());
-                mediaPlayer.setVolume((float)progress,(float)progress);
+                mediaPlayer.setVolume((float)progress*2,(float)progress*2);
 
             }
 
