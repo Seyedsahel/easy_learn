@@ -28,7 +28,7 @@
             android:text="EASY LEARN"
             android:textSize="25dp"
             android:layout_margin="20dp"
-            android:textStyle="bold"
+            android:fontFamily="@font/peydaextrabold"
             >
         </TextView>
         <ImageView
@@ -60,7 +60,9 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
                 android:text="jkdshcjsdbndvsbcdvbdvshfghjdkslhgfdhjksdfbvcghjvbcgxfdtuyghvbnbcxvdgfdhjvbncbxcgfhdfj"
-                android:textSize="20dp"></TextView>
+                android:textSize="20dp"
+                android:fontFamily="@font/peydamedium"
+                ></TextView>
 
 
             <ImageView
@@ -76,7 +78,9 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
                 android:text="sdfhjgfdjjdfjgkzslfsgjlddsgjfslfdsfjsdbjlfghjdjhbjhdbjbdjbfjdbbabjbadfjbbhdfhabjhdbfhdjbdjhajhjhj"
-                android:textSize="20dp"></TextView>
+                android:textSize="20dp"
+                android:fontFamily="@font/peydamedium"
+                ></TextView>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -130,7 +134,7 @@
                 android:layout_marginBottom="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#BF8888">
+                android:background="#a01836">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

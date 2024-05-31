@@ -22,6 +22,8 @@
         android:layout_width="295dp"
         android:layout_height="75dp"
         android:hint="نام کاربری"
+        android:fontFamily="@font/peydamedium"
+
         />
     <EditText
         android:id="@+id/passwordEdt"
@@ -29,18 +31,24 @@
         android:layout_height="75dp"
         android:hint="رمز عبور"
         android:inputType="textPassword"
+        android:fontFamily="@font/peydamedium"
+
         />
     <CheckBox
         android:id="@+id/rememberMeChbx"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="مرا به خاطر بسپار!"
+        android:fontFamily="@font/peydamedium"
+
         android:layoutDirection="rtl"/>
     <TextView
         android:id="@+id/errorMessage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="#f00"
+        android:fontFamily="@font/peydamedium"
+
         android:layout_margin="8dp"
         />
     <LinearLayout
@@ -56,6 +64,8 @@
             android:text="ورود به برنامه"
             android:textColor="@color/white"
             android:backgroundTint="#a01836"
+            android:fontFamily="@font/peydamedium"
+
             android:onClick="doLogin"
             />
         <TextView
@@ -68,6 +78,8 @@
             android:layout_width="170dp"
             android:layout_height="80dp"
             android:text="ثبت نام"
+            android:fontFamily="@font/peydamedium"
+
             android:textColor="@color/white"
         android:backgroundTint="#a01836"
             android:onClick="doRegister"/>

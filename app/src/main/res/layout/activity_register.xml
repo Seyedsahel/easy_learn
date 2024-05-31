@@ -20,9 +20,13 @@
         android:id="@+id/editTextFullName"
         android:layout_width="200dp"
         android:layout_height="55dp"
+        android:fontFamily="@font/peydamedium"
+
         android:hint="نام و نام خانوادگی"
         />
     <EditText
+        android:fontFamily="@font/peydamedium"
+
         android:id="@+id/editTextEmail"
         android:layout_width="200dp"
         android:layout_height="55dp"
@@ -30,17 +34,21 @@
         android:inputType="textEmailAddress"
         />
     <EditText
+        android:fontFamily="@font/peydamedium"
+
         android:id="@+id/editTextUserName"
         android:layout_width="200dp"
         android:layout_height="55dp"
         android:hint="نام کاربری"/>
     <EditText
+        android:fontFamily="@font/peydamedium"
         android:id="@+id/editTextPassword"
         android:layout_width="200dp"
         android:layout_height="55dp"
         android:hint="رمز عبور"
         android:inputType="textPassword"/>
     <EditText
+        android:fontFamily="@font/peydamedium"
         android:id="@+id/editTextRepeatPassword"
         android:layout_width="200dp"
         android:layout_height="55dp"
@@ -48,12 +56,16 @@
         android:inputType="textPassword"/>
 
     <TextView
+        android:fontFamily="@font/peydamedium"
+
         android:id="@+id/errorMessage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="#f00"
         />
     <Button
+        android:fontFamily="@font/peydamedium"
+
         android:id="@+id/buttonSignUp"
         android:layout_width="200dp"
         android:layout_height="60dp"

@@ -16,7 +16,8 @@
         android:text="ABOUT ME"
         android:textSize="50sp"
         android:textStyle="bold"
-        android:textColor="#6A1515"></TextView>
+        android:textColor="#a01836"
+        android:fontFamily="@font/peydablackk"></TextView>
 
 
     <LinearLayout
@@ -37,18 +38,22 @@
                 android:text="ساحل سیدیزدی"
                 android:textSize="23sp"
                 android:textStyle="bold"
+                android:fontFamily="@font/peydamedium"
                 ></TextView>
             <TextView
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:text="متولد 1383"
                 android:textSize="20sp"
+                android:fontFamily="@font/peydalight"
                 ></TextView>
             <TextView
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:text="کرمان ، رفسنجان"
                 android:textSize="20sp"
+                android:fontFamily="@font/peydalight"
+
                 ></TextView>
         </LinearLayout>
 
@@ -75,6 +80,8 @@
             android:text="برنامه نویس پایتون"
             android:textSize="25sp"
             android:textStyle="bold"
+            android:fontFamily="@font/peydamedium"
+
             ></TextView>
         <TextView
             android:layout_width="match_parent"
@@ -82,6 +89,8 @@
             android:text="علاقه مند به حوزه دیتا آنالیز"
             android:textSize="25sp"
             android:textStyle="bold"
+            android:fontFamily="@font/peydamedium"
+
             ></TextView>
         <LinearLayout
             android:layout_width="wrap_content"
@@ -118,7 +127,9 @@
         android:layout_height="wrap_content"
         android:layout_margin="30dp"
         android:text="این پروژه برای ارائه به\n درس برنامه نویسی اندروید\n در بهار 1403 طراحی و ساخته شده است.\nدانشگاه دولتی لار"
-        android:textSize="20sp"
+        android:textSize="17sp"
+        android:fontFamily="@font/peydaregular"
+
         android:textStyle="bold"
         ></TextView>
 
