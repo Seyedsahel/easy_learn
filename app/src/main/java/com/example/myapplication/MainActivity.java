@@ -203,7 +203,15 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
            Intent intent = new Intent(MainActivity.this,AboutUsActivity.class);
            startActivity(intent);
            
-       } else if (item.getTitle().equals("Log out")) {
+       } else if (item.getTitle().equals("App Pictures")) {
+           Intent intent = new Intent(MainActivity.this,GridviewActivity.class);
+           startActivity(intent);
+
+       }else if (item.getTitle().equals("Close App")) {
+           finishAffinity();
+
+       }
+       else if (item.getTitle().equals("Log out")) {
            AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
            builder.setTitle("خروج");
            builder.setMessage("آیا مایل به خروج از حساب کاربری هستید؟");
@@ -215,6 +223,9 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
                    finish();
                    Intent intent = new Intent(MainActivity.this , LoginActivity.class);
                    startActivity(intent);
+                   SharedPreferences sp = getSharedPreferences("MY_PREF", MODE_PRIVATE);
+                   SharedPreferences.Editor editor = sp.edit();
+                   editor.clear().commit();
 
                }
            });

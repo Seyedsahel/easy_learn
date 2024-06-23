@@ -13,6 +13,10 @@
         </menu>
     </item>
         <item
+            android:id="@+id/nav_pics"
+            android:icon="@drawable/images"
+            android:title="App Pictures"/>
+        <item
             android:id="@+id/nav_Us"
             android:icon="@drawable/code"
             android:title="About Us"/>
@@ -21,6 +25,10 @@
             android:id="@+id/nav_LogOut"
             android:icon="@drawable/logout"
             android:title="Log out"/>
+        <item
+            android:id="@+id/nav_close"
+            android:icon="@drawable/close"
+            android:title="Close App"/>
 
 
     </group>
